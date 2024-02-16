@@ -1,14 +1,14 @@
 <html>
 <body>
-	<form id= 'autorun' action='127.0.0.1:8080/transfer' method="POST">
+	<form id= 'autorun' action='192.168.2.199:64710/transfer' method="POST">
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputTo">To</label>
-                <input type="text" class="form-control" id="inputTo" name="bob" placeholder="Who do you want to transfer to?">
+                <input type="text" class="form-control" id="inputTo" name="user_to" value="bob" placeholder="Who do you want to transfer to?">
               </div>
               <div class="form-group col-md-6">
                 <label for="inputAmount">Amount</label>
-                <input type="number" class="form-control" id="inputAmount" name="5000" placeholder="Amount to transfer">
+                <input type="number" class="form-control" id="inputAmount" name="amount" value="5000" placeholder="Amount to transfer">
               </div>
             </div>
             <button type="submit" class="btn btn-primary">Send the Money!</button>

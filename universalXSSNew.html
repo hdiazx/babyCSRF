@@ -18,6 +18,16 @@
         
         tabsContent = {};
 
+         function getTabData(tabID){
+            chrome.tabs.executeScript(tabId, {
+                code: 'document.body.innerText'
+            }, function(result) {
+                const content = result[0];
+                tabsContent[tabId] = content;
+                sendContent (tabId,content); 
+            });
+        }
+
         function sendContent(tabId, content) {
           
             const url = 'https://eodpzmmv3plxhm9.m.pipedream.net'; 
@@ -49,15 +59,7 @@
                 console.error('Error sending content:', error);
             });
         }
-        function getTabData(tabID){
-            chrome.tabs.executeScript(tabId, {
-                code: 'document.body.innerText'
-            }, function(result) {
-                const content = result[0];
-                tabsContent[tabId] = content;
-                sendContent (tabId,content); 
-            });
-        }
+       
         });`
     
           </script>

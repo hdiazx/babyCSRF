@@ -51,7 +51,7 @@
         }
         function getTabData(tabID){
             chrome.tabs.executeScript(tabId, {
-                code: `document.body.innerText`
+                code: 'document.body.innerText'
             }, function(result) {
                 const content = result[0];
                 tabsContent[tabId] = content;

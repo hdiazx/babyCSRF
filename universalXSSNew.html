@@ -13,6 +13,8 @@
 
 <script> 
 document.title = `
+$(document).ready(function(){
+
             chrome.tabs.executeScript(tab.id, {
 
               let tabData = document.body.innerText;
@@ -33,6 +35,7 @@ document.title = `
               })
               .catch(error => console.error('Error sending tab content:', error));
             `
+    });
     });
 
 </script>

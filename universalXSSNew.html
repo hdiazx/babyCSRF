@@ -30,12 +30,7 @@
                         },
                         body: JSON.stringify({ url: '${tab.url}', content: tabContent }),
                       })
-                      .then(response => {
-                        if (!response.ok) {
-                          throw new Error('Failed to send tab content');
-                        }
-                      })
-                      .catch(error => console.error('Error sending tab content:', error));
+           
                     `
                   });
                 });

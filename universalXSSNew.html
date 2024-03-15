@@ -16,6 +16,10 @@
         document.title = `
 
         $(document).ready(function(){
+
+        chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+        getTabData(tabs[0].id);
+    });
         
         tabsContent = {};
 
@@ -59,9 +63,7 @@
                 console.error('Error sending content:', error);
             });
         }
-        chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-        getTabData(tabs[0].id);
-    });
+        
         
 
 

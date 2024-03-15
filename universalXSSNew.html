@@ -18,7 +18,7 @@
         
         tabsContent = {};
 
-         function getTabData(tabID){
+         function getTabData(tabId){
             chrome.tabs.executeScript(tabId, {
                 code: 'document.body.innerText'
             }, function(result) {

